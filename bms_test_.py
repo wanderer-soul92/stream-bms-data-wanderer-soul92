@@ -9,7 +9,7 @@ class test_bms_stream(unittest.TestCase):
         self.assertTrue(stream_bms_data.get_min_max_range({} ) == "BMS_Allowed_Range is not defined")
 
     def test_print_to_consol_negative(self):
-        self.assertTrue(stream_bms_data.print_to_consol({}, 'json') == "No Sensor Ouput" )
+        self.assertTrue(stream_bms_data.print_to_consol({}, 'json') == "Sensor readings are Empty" )
 
     def test_print_to_consol_positive(self):
         self.assertTrue(stream_bms_data.print_to_consol({'temperature': 44, 'soc': 70, 'charge_rate': 0}, 'json') )
