@@ -16,7 +16,7 @@ def isSuportedFormat(format):
         return False
 
 def get_min_max_range(BMS_allowed_range):
-    if BMS_allowed_range > 0 :
+    if len(BMS_allowed_range) > 0 :
         min_max_range = []
         for key, value in BMS_allowed_range.items():
             min_value = BMS_allowed_range[key]['min']
@@ -25,7 +25,7 @@ def get_min_max_range(BMS_allowed_range):
             min_max_range.append(var)
         return min_max_range
     else :
-       return "BMS_Allowed_Range is not defined "
+       return "BMS_Allowed_Range is not defined"
 
 def get_bms_fields(BMS_allowed_range):
     fields = []
@@ -55,8 +55,9 @@ def generate_stream_data(min_max_range, fields ):
 
 def print_to_consol(sensor_output, allowed_format):
     if len(sensor_output) > 0:
-        allowed_format_object = allowed_format.dumps(sensor_output, indent = 4)  
+        allowed_format_object = json.dumps(sensor_output, indent = 4)  
         print(allowed_format_object) 
+        return True
     else :
-        print("No Sensor Ouput")
+        return "Sensor readings are Empty"
 
