@@ -11,7 +11,7 @@ class test_bms_stream(unittest.TestCase):
     def test_print_to_consol_negative(self):
         self.assertTrue(stream_bms_data.print_to_consol({}, 'json') == "No Sensor Ouput" )
 
-    def test_print_to_consol_negative(self):
+    def test_print_to_consol_positive(self):
         self.assertTrue(stream_bms_data.print_to_consol({'temperature': 44, 'soc': 70, 'charge_rate': 0}, 'json') )
 
 if __name__ == '__main__':
