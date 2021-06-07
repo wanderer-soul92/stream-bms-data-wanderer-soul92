@@ -1,5 +1,6 @@
 import random
 import json
+
 stream_limit = 15
 
 BMS_allowed_range = {'temperature': {'min': 0, 'max': 45},
@@ -35,11 +36,11 @@ def get_bms_fields(BMS_allowed_range):
     return(fields)
 
 def plugin_sensor_stream(min_max_range, stream_limit, fields):
-    if streamlimit > 0: 
+    if stream_limit > 0: 
         for i in range (0,stream_limit):
             sensor_output = generate_stream_data (min_max_range, fields )
-            print_to_consol(sensor_output)
-            return true
+            print_to_consol(sensor_output, allowed_format )
+        return True
     else :
         return "Stream_limit is not defined"
 
@@ -60,4 +61,5 @@ def print_to_consol(sensor_output, allowed_format):
         return True
     else :
         return "Sensor readings are Empty"
+
 
